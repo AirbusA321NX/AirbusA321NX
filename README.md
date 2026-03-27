@@ -9,7 +9,6 @@ I’m currently working on:<br>ML systems and research.<br><br>I’m looking to 
 
 ## 📊 GitHub Stats
 ![GitHub stats](https://github-readme-stats.vercel.app/api?username=AirbusA321NX&show_icons=true&theme=radical)
-![GitHub streak](https://github-readme-streak-stats.herokuapp.com/?user=AirbusA321NX&theme=radical)
 
 ## 🏆 GitHub Trophies
 ![](https://github-profile-trophy.vercel.app/?username=AirbusA321NX&theme=radical&no-frame=false&no-bg=true&margin-w=4)
