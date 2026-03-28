@@ -32,5 +32,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add profile/*.svg
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update GitHub stats cards"
-          git push
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update GitHub stats cards"
+            git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref_name }}
+          fi
