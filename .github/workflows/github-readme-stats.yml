@@ -9,10 +9,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout repository (public, no token)
         uses: actions/checkout@v4
         with:
-          persist-credentials: false   # don't use default token
+          persist-credentials: false
+
+      - name: Debug secret existence
+        run: |
+          if [ -n "${{ secrets.README_STATS }}" ]; then
+            echo "✅ Secret README_STATS is set."
+          else
+            echo "❌ Secret README_STATS is NOT set. Please add it."
+            exit 1
+          fi
 
       - name: Generate stats card
         uses: readme-tools/github-readme-stats-action@v1
@@ -30,15 +39,27 @@ jobs:
           path: profile/top-langs.svg
           token: ${{ secrets.README_STATS }}
 
-      - name: Commit and push changes
+      - name: Debug generated files
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add profile/*.svg
-          if git diff --quiet && git diff --staged --quiet; then
-            echo "No changes to commit"
+          echo "Files in profile/ directory:"
+          ls -la profile/ || echo "profile/ directory not found"
+          if [ -f profile/stats.svg ]; then
+            echo "✅ stats.svg exists"
           else
-            git commit -m "Update GitHub stats cards"
-            git remote set-url origin https://${{ secrets.README_STATS }}@github.com/${{ github.repository }}.git
-            git push origin HEAD:${{ github.ref_name }}
+            echo "❌ stats.svg missing"
           fi
+          if [ -f profile/top-langs.svg ]; then
+            echo "✅ top-langs.svg exists"
+          else
+            echo "❌ top-langs.svg missing"
+          fi
+
+      - name: Commit and push changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: github-actions[bot]
+          author_email: github-actions[bot]@users.noreply.github.com
+          message: 'Update GitHub stats cards'
+          add: 'profile/*.svg'
+          push: true
+          token: ${{ secrets.README_STATS }}
