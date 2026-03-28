@@ -1,5 +1,5 @@
-# 💫 About Me:
-I’m currently working on:<br>ML systems and research.<br><br>I’m looking to collaborate on:<br>ML systems and backend infrastructure—especially where performance meets reliability.<br><br>I’m looking for help with:<br>Scaling AI inference pipelines and exploring advanced RAG optimization techniques.<br><br>I’m currently learning:<br>System design for low‑latency applications, async Python patterns, and deeper MLOps practices.<br><br>Ask me about:<br>The Windows 11 bug I reported, my FastAPI backend architecture with RBAC, or my work on AI guardrails.<br><br>Fun fact:<br>I found and reported a file‑corruption bug in Windows 11 24H2 to Microsoft—now I’m the guy who breaks things responsibly.<br><br>
+
+![GitHubCard](https://githubcard.com/AirbusA321NX.svg)
 
 ## 🌐 Socials:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/shivam-j-61a569281/) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:shivamjindal829@gmail.com) 
