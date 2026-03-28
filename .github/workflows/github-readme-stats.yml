@@ -9,10 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository with PAT
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.README_STATS }}
+          persist-credentials: false   # don't use default token
 
       - name: Generate stats card
         uses: readme-tools/github-readme-stats-action@v1
@@ -39,5 +39,6 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "Update GitHub stats cards"
-            git push
+            git remote set-url origin https://${{ secrets.README_STATS }}@github.com/${{ github.repository }}.git
+            git push origin HEAD:${{ github.ref_name }}
           fi
