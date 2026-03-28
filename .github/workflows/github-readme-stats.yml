@@ -18,10 +18,10 @@ jobs:
 
       - name: Debug secret existence
         run: |
-          if [ -n "${{ secrets.README_STATS }}" ]; then
-            echo "✅ Secret README_STATS is set."
+          if [ -n "${{ secrets.GH_PAT }}" ]; then
+            echo "✅ Secret GH_PAT is set."
           else
-            echo "❌ Secret README_STATS is NOT set. Please add it."
+            echo "❌ Secret GH_PAT is NOT set. Please add it."
             exit 1
           fi
 
@@ -31,7 +31,7 @@ jobs:
           card: stats
           options: username=${{ github.repository_owner }}&show_icons=true&theme=radical
           path: repo/profile/stats.svg
-          token: ${{ secrets.README_STATS }}
+          token: ${{ secrets.GH_PAT }}
 
       - name: Generate top languages card
         uses: readme-tools/github-readme-stats-action@v1
@@ -39,7 +39,7 @@ jobs:
           card: top-langs
           options: username=${{ github.repository_owner }}&layout=compact&theme=radical&langs_count=8
           path: repo/profile/top-langs.svg
-          token: ${{ secrets.README_STATS }}
+          token: ${{ secrets.GH_PAT }}
 
       - name: Debug generated files
         run: |
@@ -64,5 +64,5 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "Update GitHub stats cards"
-            git push https://${{ secrets.README_STATS }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref_name }}
+            git push https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref_name }}
           fi
