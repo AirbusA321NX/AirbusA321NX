@@ -22,7 +22,6 @@ I’m currently working on:<br>ML systems and research.<br><br>I’m looking to 
 ### ✍️ Here's a Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
-### 🔝 My Top Repos
-[![Top Repos](https://github-readme-stats.vercel.app/api/pin/?username=AirbusA321NX&repo=guardrail_system&theme=radical)](https://github.com/AirbusA321NX/guardrail_system)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=AirbusA321NX&layout=compact&theme=radical)
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
