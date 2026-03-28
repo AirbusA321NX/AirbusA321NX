@@ -22,6 +22,6 @@
 ### ✍️ Here's a Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=AirbusA321NX&layout=compact&theme=radical)
+![Top Languages](https://githubcard.com/api/langs?username=AirbusA321NX&theme=radical&layout=compact)
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
