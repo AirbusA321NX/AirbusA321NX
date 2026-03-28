@@ -2,14 +2,19 @@ name: Update GitHub Stats
 
 on:
   schedule:
-    - cron: '0 3 * * *'
-  workflow_dispatch:
+    - cron: '0 3 * * *'   # daily at 3:00 UTC
+  workflow_dispatch:      # allows manual trigger
+
+permissions:
+  contents: write          # grants write permission to the default GITHUB_TOKEN
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Generate stats card
         uses: readme-tools/github-readme-stats-action@v1
@@ -17,7 +22,7 @@ jobs:
           card: stats
           options: username=${{ github.repository_owner }}&show_icons=true&theme=radical
           path: profile/stats.svg
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate top languages card
         uses: readme-tools/github-readme-stats-action@v1
@@ -25,9 +30,9 @@ jobs:
           card: top-langs
           options: username=${{ github.repository_owner }}&layout=compact&theme=radical&langs_count=8
           path: profile/top-langs.svg
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Commit files
+      - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -36,5 +41,5 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "Update GitHub stats cards"
-            git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref_name }}
+            git push
           fi
