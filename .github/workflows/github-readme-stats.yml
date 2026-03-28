@@ -1,68 +1,18 @@
-name: Update GitHub Stats
-
+name: Metrics
 on:
-  schedule:
-    - cron: '0 3 * * *'
-  workflow_dispatch:
+  schedule: [{cron: "0 0 * * *"}]   # daily at midnight
+  workflow_dispatch:                 # allows manual run
 
 jobs:
-  build:
+  metrics:
     runs-on: ubuntu-latest
     steps:
-      - name: Clone repository
-        run: |
-          git clone https://github.com/${{ github.repository }}.git repo
-          cd repo
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Debug secret existence
-        run: |
-          if [ -n "${{ secrets.GH_PAT }}" ]; then
-            echo "✅ Secret GH_PAT is set."
-          else
-            echo "❌ Secret GH_PAT is NOT set. Please add it."
-            exit 1
-          fi
-
-      - name: Generate stats card
-        uses: readme-tools/github-readme-stats-action@v1
+      - uses: lowlighter/metrics@latest
         with:
-          card: stats
-          options: username=${{ github.repository_owner }}&show_icons=true&theme=radical
-          path: repo/profile/stats.svg
-          token: ${{ secrets.GH_PAT }}
-
-      - name: Generate top languages card
-        uses: readme-tools/github-readme-stats-action@v1
-        with:
-          card: top-langs
-          options: username=${{ github.repository_owner }}&layout=compact&theme=radical&langs_count=8
-          path: repo/profile/top-langs.svg
-          token: ${{ secrets.GH_PAT }}
-
-      - name: Debug generated files
-        run: |
-          echo "Files in repo/profile/ directory:"
-          ls -la repo/profile/ || echo "repo/profile/ directory not found"
-          if [ -f repo/profile/stats.svg ]; then
-            echo "✅ stats.svg exists"
-          else
-            echo "❌ stats.svg missing"
-          fi
-          if [ -f repo/profile/top-langs.svg ]; then
-            echo "✅ top-langs.svg exists"
-          else
-            echo "❌ top-langs.svg missing"
-          fi
-
-      - name: Commit and push changes
-        run: |
-          cd repo
-          git add profile/*.svg
-          if git diff --quiet && git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "Update GitHub stats cards"
-            git push https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref_name }}
-          fi
+          token: ${{ secrets.GITHUB_TOKEN }}
+          user: AirbusA321NX
+          template: classic
+          base: header, activity, repositories
+          plugin_languages: yes
+          plugin_languages_analysis_timeout: 15
+          plugin_languages_limit: 8
