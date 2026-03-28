@@ -14,10 +14,12 @@ I’m currently working on:<br>ML systems and research.<br><br>I’m looking to 
 ## 🏆 Achievements
 ![GitHub Repo stars](https://img.shields.io/github/stars/AirbusA321NX/guardrail_system?style=social)
 
+
+## Profle Views
 ![Profile views](https://komarev.com/ghpvc/?username=AirbusA321NX&color=blue)
 
 
-### ✍️ Random Dev Quote
+### ✍️ Here's a Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
 ### 🔝 Top Contributed Repo
