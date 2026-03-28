@@ -9,10 +9,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository (public, no token)
-        uses: actions/checkout@v4
-        with:
-          persist-credentials: false
+      - name: Clone repository
+        run: |
+          git clone https://github.com/${{ github.repository }}.git repo
+          cd repo
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Debug secret existence
         run: |
@@ -28,7 +30,7 @@ jobs:
         with:
           card: stats
           options: username=${{ github.repository_owner }}&show_icons=true&theme=radical
-          path: profile/stats.svg
+          path: repo/profile/stats.svg
           token: ${{ secrets.README_STATS }}
 
       - name: Generate top languages card
@@ -36,30 +38,31 @@ jobs:
         with:
           card: top-langs
           options: username=${{ github.repository_owner }}&layout=compact&theme=radical&langs_count=8
-          path: profile/top-langs.svg
+          path: repo/profile/top-langs.svg
           token: ${{ secrets.README_STATS }}
 
       - name: Debug generated files
         run: |
-          echo "Files in profile/ directory:"
-          ls -la profile/ || echo "profile/ directory not found"
-          if [ -f profile/stats.svg ]; then
+          echo "Files in repo/profile/ directory:"
+          ls -la repo/profile/ || echo "repo/profile/ directory not found"
+          if [ -f repo/profile/stats.svg ]; then
             echo "✅ stats.svg exists"
           else
             echo "❌ stats.svg missing"
           fi
-          if [ -f profile/top-langs.svg ]; then
+          if [ -f repo/profile/top-langs.svg ]; then
             echo "✅ top-langs.svg exists"
           else
             echo "❌ top-langs.svg missing"
           fi
 
       - name: Commit and push changes
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: github-actions[bot]
-          author_email: github-actions[bot]@users.noreply.github.com
-          message: 'Update GitHub stats cards'
-          add: 'profile/*.svg'
-          push: true
-          token: ${{ secrets.README_STATS }}
+        run: |
+          cd repo
+          git add profile/*.svg
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update GitHub stats cards"
+            git push https://${{ secrets.README_STATS }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref_name }}
+          fi
