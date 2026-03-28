@@ -14,6 +14,8 @@ I’m currently working on:<br>ML systems and research.<br><br>I’m looking to 
 ## 🏆 Achievements
 ![GitHub Repo stars](https://img.shields.io/github/stars/AirbusA321NX/guardrail_system?style=social)
 
+[![trophy](https://github-profile-trophy.vercel.app/?username=AirbusA321NX)](https://github.com/ryo-ma/github-profile-trophy)
+
 ### ✍️ Random Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
