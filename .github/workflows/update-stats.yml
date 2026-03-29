@@ -1,0 +1,63 @@
+name: 📊 Update GitHub Stats Card
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # every 6 hours
+  workflow_dispatch:          # run manually from Actions tab
+  push:
+    branches: [main, master]
+    paths:
+      - ".github/workflows/update-stats.yml"
+      - "generate_stats.py"
+
+permissions:
+  contents: write             # needed to commit the SVG back
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      # 1. Checkout YOUR profile repo (the one named <username>/<username>)
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}  # PAT so the push at the end works
+          fetch-depth: 1
+
+      # 2. Set up Python (no pip dependencies needed – pure stdlib)
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # 3. Copy the stats generator if it's not already in the repo root
+      #    (it will be after the first commit – this step is a no-op then)
+      - name: Ensure generate_stats.py is present
+        run: |
+          if [ ! -f generate_stats.py ]; then
+            echo "generate_stats.py not found – did you commit it to the repo?"
+            exit 1
+          fi
+
+      # 4. Run the generator
+      - name: Generate SVG
+        env:
+          GH_PAT:           ${{ secrets.GH_PAT }}
+          GITHUB_USERNAME:  ${{ github.repository_owner }}
+          OUTPUT_FILE:      github-stats.svg
+        run: python generate_stats.py
+
+      # 5. Commit & push only if the SVG actually changed
+      - name: Commit & push SVG
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add github-stats.svg
+          if git diff --staged --quiet; then
+            echo "No changes – SVG is up to date."
+          else
+            git commit -m "chore: auto-update github-stats.svg [skip ci]"
+            git push
+          fi
