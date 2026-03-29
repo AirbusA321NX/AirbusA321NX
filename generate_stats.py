@@ -140,74 +140,52 @@ def fetch_stats(username):
     }
 
 # ─── SVG GENERATION ────────────────────────────────────────────────────────────
-def bar(pct, color, y_offset):
-    w = max(pct * 220, 2)
-    return (
-        f'<rect x="0" y="{y_offset}" width="{w:.1f}" height="8" rx="4" '
-        f'fill="{color}" opacity="0.9"/>'
-    )
-
 def esc(text):
     return str(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 def generate_svg(s):
-    langs        = s["top_langs"]
-    total_bytes  = s["total_bytes"]
+    langs       = s["top_langs"]
+    total_bytes = s["total_bytes"]
 
-    # Build language rows
+    card_w  = 340
+    pad     = 28
+    inner_w = card_w - pad * 2          # 284px usable width
+    row_h   = 38                        # height per language row
+    total_h = 70 + len(langs) * row_h + 30   # dynamic height
+
+    # ── Combined stacked bar at top ──────────────────────────────────────────
+    stacked_rects = ""
+    cx = 0.0
+    for name, size, color in langs:
+        pct = size / total_bytes
+        w   = max(pct * inner_w, 2)
+        stacked_rects += f'<rect x="{cx:.1f}" y="0" width="{w:.1f}" height="12" fill="{color}"/>'
+        cx += w
+
+    # ── Per-language rows ────────────────────────────────────────────────────
     lang_rows = ""
-    bar_rows  = ""
-    y_start   = 198
-
     for i, (name, size, color) in enumerate(langs):
         pct     = size / total_bytes
-        pct_txt = f"{pct*100:.1f}%"
-        y       = y_start + i * 28
+        pct_txt = f"{pct * 100:.1f}%"
+        y       = i * row_h
+        bar_w   = max(pct * inner_w, 3)
 
-        # dot + name
-        lang_rows += (
-            f'<circle cx="10" cy="{y+4}" r="5" fill="{color}"/>'
-            f'<text x="22" y="{y+8}" font-size="11.5" fill="#c9d1d9">{esc(name)}</text>'
-            f'<text x="230" y="{y+8}" font-size="11" fill="#8b949e" text-anchor="end">{pct_txt}</text>'
-        )
-        # bar
-        bar_rows += (
-            f'<rect x="0" y="{y+14}" width="230" height="6" rx="3" fill="#21262d"/>'
-            + bar(pct, color, y + 14)
-        )
+        lang_rows += f"""
+        <!-- {name} -->
+        <circle cx="6" cy="{y + 7}" r="5" fill="{color}"/>
+        <text x="18" y="{y + 12}" font-size="12" fill="#c9d1d9"
+              font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif">{esc(name)}</text>
+        <text x="{inner_w}" y="{y + 12}" font-size="11" fill="#8b949e"
+              text-anchor="end" font-family="'Segoe UI',sans-serif">{pct_txt}</text>
+        <rect x="0" y="{y + 18}" width="{inner_w}" height="6" rx="3" fill="#21262d"/>
+        <rect x="0" y="{y + 18}" width="{bar_w:.1f}" height="6" rx="3" fill="{color}" opacity="0.9"/>"""
 
-    lang_section_h = len(langs) * 28 + 10
-    total_h = 195 + lang_section_h + 20   # dynamic height
-
-    # Stats row items
-    stats = [
-        ("⭐", "Stars",    s["stars"]),
-        ("🍴", "Forks",    s["forks"]),
-        ("📦", "Repos",    s["repos"]),
-        ("👥", "Followers",s["followers"]),
-        ("💻", "Commits",  s["commits"]),
-        ("🔀", "PRs",      s["prs"]),
-    ]
-
-    stat_items = ""
-    cols = 3
-    cell_w = 240 / cols
-    for idx, (icon, label, val) in enumerate(stats):
-        cx = (idx % cols) * cell_w + cell_w / 2
-        cy = 70 + (idx // cols) * 52
-        stat_items += (
-            f'<text x="{cx:.0f}" y="{cy}" font-size="18" text-anchor="middle">{icon}</text>'
-            f'<text x="{cx:.0f}" y="{cy+18}" font-size="13" font-weight="bold" '
-            f'fill="#e6edf3" text-anchor="middle">{val:,}</text>'
-            f'<text x="{cx:.0f}" y="{cy+32}" font-size="10" fill="#8b949e" text-anchor="middle">{label}</text>'
-        )
-
-    svg = f"""<svg width="480" height="{total_h}" viewBox="0 0 480 {total_h}"
-     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-     role="img" aria-label="GitHub Stats for {esc(s['login'])}">
+    svg = f"""<svg width="{card_w}" height="{total_h}" viewBox="0 0 {card_w} {total_h}"
+     xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="Top Languages for {esc(s['login'])}">
 
   <defs>
-    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%"   stop-color="#0d1117"/>
       <stop offset="100%" stop-color="#161b22"/>
     </linearGradient>
@@ -215,96 +193,47 @@ def generate_svg(s):
       <stop offset="0%"   stop-color="#58a6ff"/>
       <stop offset="100%" stop-color="#bc8cff"/>
     </linearGradient>
-    <clipPath id="clip-card">
-      <rect width="480" height="{total_h}" rx="14"/>
+    <clipPath id="card-clip">
+      <rect width="{card_w}" height="{total_h}" rx="12"/>
     </clipPath>
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#010409" flood-opacity="0.6"/>
-    </filter>
   </defs>
 
-  <!-- Card background -->
-  <g clip-path="url(#clip-card)" filter="url(#shadow)">
-    <rect width="480" height="{total_h}" fill="url(#grad)"/>
+  <g clip-path="url(#card-clip)">
+    <!-- Background -->
+    <rect width="{card_w}" height="{total_h}" fill="url(#bg)"/>
 
-    <!-- Accent stripe top -->
-    <rect width="480" height="3" fill="url(#accent)"/>
+    <!-- Top accent stripe -->
+    <rect width="{card_w}" height="3" fill="url(#accent)"/>
 
-    <!-- ── LEFT PANEL: Stats ─────────────────────────────────────── -->
-    <g transform="translate(20, 20)">
+    <g transform="translate({pad}, 18)">
 
-      <!-- Username + name -->
-      <text x="0" y="22" font-size="15" font-weight="700" fill="url(#accent)"
-            font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">@{esc(s['login'])}</text>
-      <text x="0" y="40" font-size="11" fill="#8b949e"
-            font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">{esc(s['name'])} · {s['year']} Contributions: {s['total_contribs']:,}</text>
+      <!-- Title -->
+      <text x="0" y="16" font-size="14" font-weight="700" fill="#e6edf3"
+            font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif">Most Used Languages</text>
+      <text x="{inner_w}" y="16" font-size="10" fill="#8b949e" text-anchor="end"
+            font-family="'Segoe UI',sans-serif">@{esc(s['login'])}</text>
 
-      <!-- Divider -->
-      <rect x="0" y="50" width="240" height="1" fill="#21262d"/>
-
-      <!-- Stats grid -->
-      {stat_items}
-
-      <!-- Divider 2 -->
-      <rect x="0" y="175" width="240" height="1" fill="#21262d"/>
-
-      <!-- Issues & Reviews -->
-      <text x="0"   y="192" font-size="11" fill="#8b949e">Issues opened</text>
-      <text x="240" y="192" font-size="11" fill="#c9d1d9" text-anchor="end" font-weight="600">{s['issues']}</text>
-      <text x="0"   y="208" font-size="11" fill="#8b949e">PR Reviews</text>
-      <text x="240" y="208" font-size="11" fill="#c9d1d9" text-anchor="end" font-weight="600">{s['reviews']}</text>
-
-    </g>
-
-    <!-- Vertical divider -->
-    <rect x="285" y="20" width="1" height="{total_h - 40}" fill="#21262d"/>
-
-    <!-- ── RIGHT PANEL: Languages ─────────────────────────────────── -->
-    <g transform="translate(305, 20)">
-
-      <text x="0" y="18" font-size="13" font-weight="700" fill="#e6edf3"
-            font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Top Languages</text>
-      <rect x="0" y="26" width="155" height="2" fill="url(#accent)" rx="1"/>
-
-      <!-- Combined bar -->
-      <g transform="translate(0, 40)">
-        <rect width="155" height="10" rx="5" fill="#21262d"/>"""
-
-    # combined bar segments
-    cx = 0.0
-    for name, size, color in langs:
-        pct = size / total_bytes
-        w   = max(pct * 155, 1.5)
-        svg += f'\n        <rect x="{cx:.1f}" y="0" width="{w:.1f}" height="10" fill="{color}"/>'
-        cx += w
-
-    svg += f"""
+      <!-- Stacked bar -->
+      <g transform="translate(0, 24)">
+        <rect width="{inner_w}" height="12" rx="6" fill="#21262d"/>
+        <clipPath id="bar-clip"><rect width="{inner_w}" height="12" rx="6"/></clipPath>
+        <g clip-path="url(#bar-clip)">
+          {stacked_rects}
+        </g>
       </g>
 
-      <!-- Language list -->
-      <g transform="translate(0, 65)">"""
-
-    for i, (name, size, color) in enumerate(langs):
-        pct     = size / total_bytes
-        pct_txt = f"{pct*100:.1f}%"
-        y       = i * 28
-        svg += f"""
-        <circle cx="6" cy="{y+6}" r="5" fill="{color}"/>
-        <text x="16" y="{y+11}" font-size="11" fill="#c9d1d9"
-              font-family="'Segoe UI', sans-serif">{esc(name)}</text>
-        <text x="155" y="{y+11}" font-size="10.5" fill="#8b949e" text-anchor="end">{pct_txt}</text>
-        <rect x="0" y="{y+16}" width="155" height="5" rx="2.5" fill="#21262d"/>
-        <rect x="0" y="{y+16}" width="{max(pct*155, 2):.1f}" height="5" rx="2.5" fill="{color}" opacity="0.85"/>"""
-
-    svg += f"""
+      <!-- Language rows -->
+      <g transform="translate(0, 48)">
+        {lang_rows}
       </g>
 
     </g>
 
     <!-- Footer -->
-    <text x="240" y="{total_h - 8}" font-size="9" fill="#484f58" text-anchor="middle"
-          font-family="'Segoe UI', sans-serif">Auto-generated · github.com/{esc(s['login'])}</text>
-
+    <text x="{card_w // 2}" y="{total_h - 7}" font-size="8.5" fill="#30363d"
+          text-anchor="middle" font-family="'Segoe UI',sans-serif">
+      Auto-updated via GitHub Actions
+    </text>
   </g>
 </svg>"""
 
