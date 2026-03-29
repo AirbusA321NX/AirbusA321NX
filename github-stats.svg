@@ -25,6 +25,7 @@
 
     <g transform="translate(28, 18)">
 
+<<<<<<< HEAD
       <!-- Title -->
       <text x="0" y="16" font-size="14" font-weight="700" fill="#e6edf3"
             font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif">Most Used Languages</text>
@@ -91,6 +92,90 @@
               text-anchor="end" font-family="'Segoe UI',sans-serif">0.5%</text>
         <rect x="0" y="208" width="284" height="6" rx="3" fill="#21262d"/>
         <rect x="0" y="208" width="3.0" height="6" rx="3" fill="#663399" opacity="0.9"/>
+=======
+      <!-- Username + name -->
+      <text x="0" y="22" font-size="15" font-weight="700" fill="url(#accent)"
+            font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">@AirbusA321NX</text>
+      <text x="0" y="40" font-size="11" fill="#8b949e"
+            font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Shivam Jindal · 2026 Contributions: 102</text>
+
+      <!-- Divider -->
+      <rect x="0" y="50" width="240" height="1" fill="#21262d"/>
+
+      <!-- Stats grid -->
+      <text x="40" y="70" font-size="18" text-anchor="middle">⭐</text><text x="40" y="88" font-size="13" font-weight="bold" fill="#e6edf3" text-anchor="middle">79</text><text x="40" y="102" font-size="10" fill="#8b949e" text-anchor="middle">Stars</text><text x="120" y="70" font-size="18" text-anchor="middle">🍴</text><text x="120" y="88" font-size="13" font-weight="bold" fill="#e6edf3" text-anchor="middle">0</text><text x="120" y="102" font-size="10" fill="#8b949e" text-anchor="middle">Forks</text><text x="200" y="70" font-size="18" text-anchor="middle">📦</text><text x="200" y="88" font-size="13" font-weight="bold" fill="#e6edf3" text-anchor="middle">23</text><text x="200" y="102" font-size="10" fill="#8b949e" text-anchor="middle">Repos</text><text x="40" y="122" font-size="18" text-anchor="middle">👥</text><text x="40" y="140" font-size="13" font-weight="bold" fill="#e6edf3" text-anchor="middle">4</text><text x="40" y="154" font-size="10" fill="#8b949e" text-anchor="middle">Followers</text><text x="120" y="122" font-size="18" text-anchor="middle">💻</text><text x="120" y="140" font-size="13" font-weight="bold" fill="#e6edf3" text-anchor="middle">97</text><text x="120" y="154" font-size="10" fill="#8b949e" text-anchor="middle">Commits</text><text x="200" y="122" font-size="18" text-anchor="middle">🔀</text><text x="200" y="140" font-size="13" font-weight="bold" fill="#e6edf3" text-anchor="middle">1</text><text x="200" y="154" font-size="10" fill="#8b949e" text-anchor="middle">PRs</text>
+
+      <!-- Divider 2 -->
+      <rect x="0" y="175" width="240" height="1" fill="#21262d"/>
+
+      <!-- Issues & Reviews -->
+      <text x="0"   y="192" font-size="11" fill="#8b949e">Issues opened</text>
+      <text x="240" y="192" font-size="11" fill="#c9d1d9" text-anchor="end" font-weight="600">0</text>
+      <text x="0"   y="208" font-size="11" fill="#8b949e">PR Reviews</text>
+      <text x="240" y="208" font-size="11" fill="#c9d1d9" text-anchor="end" font-weight="600">0</text>
+
+    </g>
+
+    <!-- Vertical divider -->
+    <rect x="285" y="20" width="1" height="353" fill="#21262d"/>
+
+    <!-- ── RIGHT PANEL: Languages ─────────────────────────────────── -->
+    <g transform="translate(305, 20)">
+
+      <text x="0" y="18" font-size="13" font-weight="700" fill="#e6edf3"
+            font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">Top Languages</text>
+      <rect x="0" y="26" width="155" height="2" fill="url(#accent)" rx="1"/>
+
+      <!-- Combined bar -->
+      <g transform="translate(0, 40)">
+        <rect width="155" height="10" rx="5" fill="#21262d"/>
+        <rect x="0.0" y="0" width="138.6" height="10" fill="#DA5B0B"/>
+        <rect x="138.6" y="0" width="6.3" height="10" fill="#3572A5"/>
+        <rect x="144.9" y="0" width="6.1" height="10" fill="#e34c26"/>
+        <rect x="151.0" y="0" width="2.1" height="10" fill="#f1e05a"/>
+        <rect x="153.1" y="0" width="1.5" height="10" fill="#4F5D95"/>
+        <rect x="154.6" y="0" width="1.5" height="10" fill="#663399"/>
+      </g>
+
+      <!-- Language list -->
+      <g transform="translate(0, 65)">
+        <circle cx="6" cy="6" r="5" fill="#DA5B0B"/>
+        <text x="16" y="11" font-size="11" fill="#c9d1d9"
+              font-family="'Segoe UI', sans-serif">Jupyter Notebook</text>
+        <text x="155" y="11" font-size="10.5" fill="#8b949e" text-anchor="end">89.4%</text>
+        <rect x="0" y="16" width="155" height="5" rx="2.5" fill="#21262d"/>
+        <rect x="0" y="16" width="138.6" height="5" rx="2.5" fill="#DA5B0B" opacity="0.85"/>
+        <circle cx="6" cy="34" r="5" fill="#3572A5"/>
+        <text x="16" y="39" font-size="11" fill="#c9d1d9"
+              font-family="'Segoe UI', sans-serif">Python</text>
+        <text x="155" y="39" font-size="10.5" fill="#8b949e" text-anchor="end">4.0%</text>
+        <rect x="0" y="44" width="155" height="5" rx="2.5" fill="#21262d"/>
+        <rect x="0" y="44" width="6.3" height="5" rx="2.5" fill="#3572A5" opacity="0.85"/>
+        <circle cx="6" cy="62" r="5" fill="#e34c26"/>
+        <text x="16" y="67" font-size="11" fill="#c9d1d9"
+              font-family="'Segoe UI', sans-serif">HTML</text>
+        <text x="155" y="67" font-size="10.5" fill="#8b949e" text-anchor="end">3.9%</text>
+        <rect x="0" y="72" width="155" height="5" rx="2.5" fill="#21262d"/>
+        <rect x="0" y="72" width="6.1" height="5" rx="2.5" fill="#e34c26" opacity="0.85"/>
+        <circle cx="6" cy="90" r="5" fill="#f1e05a"/>
+        <text x="16" y="95" font-size="11" fill="#c9d1d9"
+              font-family="'Segoe UI', sans-serif">JavaScript</text>
+        <text x="155" y="95" font-size="10.5" fill="#8b949e" text-anchor="end">1.4%</text>
+        <rect x="0" y="100" width="155" height="5" rx="2.5" fill="#21262d"/>
+        <rect x="0" y="100" width="2.1" height="5" rx="2.5" fill="#f1e05a" opacity="0.85"/>
+        <circle cx="6" cy="118" r="5" fill="#4F5D95"/>
+        <text x="16" y="123" font-size="11" fill="#c9d1d9"
+              font-family="'Segoe UI', sans-serif">PHP</text>
+        <text x="155" y="123" font-size="10.5" fill="#8b949e" text-anchor="end">0.5%</text>
+        <rect x="0" y="128" width="155" height="5" rx="2.5" fill="#21262d"/>
+        <rect x="0" y="128" width="2.0" height="5" rx="2.5" fill="#4F5D95" opacity="0.85"/>
+        <circle cx="6" cy="146" r="5" fill="#663399"/>
+        <text x="16" y="151" font-size="11" fill="#c9d1d9"
+              font-family="'Segoe UI', sans-serif">CSS</text>
+        <text x="155" y="151" font-size="10.5" fill="#8b949e" text-anchor="end">0.5%</text>
+        <rect x="0" y="156" width="155" height="5" rx="2.5" fill="#21262d"/>
+        <rect x="0" y="156" width="2.0" height="5" rx="2.5" fill="#663399" opacity="0.85"/>
+>>>>>>> 96f5de7031f9226a39039d3198f95065e0fad23d
       </g>
 
     </g>
