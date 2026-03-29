@@ -4,9 +4,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  metadata: read
-  packages: read
+  contents: read   # only needed to read the repository
+  # No "metadata" permission – it's not a valid scope
 
 jobs:
   metrics:
