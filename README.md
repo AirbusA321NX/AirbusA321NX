@@ -22,5 +22,4 @@
 ### ✍️ Here's a Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
-![Top Languages](./profile/top-langs.svg)
-
+![GitHub Stats](./github-stats.svg)
