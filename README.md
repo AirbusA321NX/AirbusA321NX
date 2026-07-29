@@ -16,8 +16,6 @@
 ## Profle Views
 ![Profile views](https://komarev.com/ghpvc/?username=AirbusA321NX&color=blue)
 
-
-### ✍️ Here's a Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
 ![GitHub Stats](./github-stats.svg)
