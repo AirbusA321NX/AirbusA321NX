@@ -47,6 +47,7 @@ https://github.com/user-attachments/assets/5accc0fd-360d-4ea8-974f-42ba7ffa0739
   <img src="https://img.shields.io/badge/Mistral%20AI-FA520F?logo=mistral-ai&logoColor=fff&style=for-the-badge" alt="Mistral AI" height="40" />
   <img src="https://img.shields.io/badge/LaTeX-008080?style=for-the-badge&logo=latex&logoColor=white" alt="LaTeX" height="40" />
   <img src="https://img.shields.io/badge/MATLAB-0076A8?style=for-the-badge&logo=mathworks&logoColor=white" alt="MATLAB" height="40" />
+  <img src="https://www.readmecodegen.com/api/social-icon?name=ubuntu&size=40&animation=fade&animationDuration=1.9" alt="ubuntu" />
 </p>
 
 
