@@ -59,7 +59,6 @@ https://github.com/user-attachments/assets/5accc0fd-360d-4ea8-974f-42ba7ffa0739
   <img src="https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white" alt="jQuery" height="40" />
   <img src="https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens" alt="JWT" height="40" />
   <img src="https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white" alt="NPM" height="40" />
-  <img src="https://img.shields.io/badge/FastAPI-009485.svg?logo=fastapi&logoColor=white&style=for-the-badge" alt="FastAPI" height="40" />
   <img src="https://img.shields.io/badge/Mistral%20AI-FA520F?logo=mistral-ai&logoColor=fff&style=for-the-badge" alt="Mistral AI" height="40" />
   <img src="https://img.shields.io/badge/LaTeX-008080?style=for-the-badge&logo=latex&logoColor=white" alt="LaTeX" height="40" />
   <img src="https://img.shields.io/badge/MATLAB-0076A8?style=for-the-badge&logo=mathworks&logoColor=white" alt="MATLAB" height="40" />
