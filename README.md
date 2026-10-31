@@ -38,7 +38,6 @@ https://github.com/user-attachments/assets/5accc0fd-360d-4ea8-974f-42ba7ffa0739
   <img src="https://www.readmecodegen.com/api/social-icon?name=fastapi&size=40&animation=glow&animationDuration=1.9" alt="FastAPI" width="40" height="40" />
   <img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white" alt="NodeJS" height="40" />
   <img src="https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" height="40" />
-  <img src="https://techstack-generator.vercel.app/mysql-icon.svg" alt="MySQL" width="40" height="40" />
   <img src="https://img.shields.io/badge/adobe-%23FF0000.svg?style=for-the-badge&logo=adobe&logoColor=white" alt="Adobe" height="40" />
   <img src="https://img.shields.io/badge/Adobe%20Acrobat%20Reader-EC1C24.svg?style=for-the-badge&logo=Adobe%20Acrobat%20Reader&logoColor=white" alt="Adobe Acrobat Reader" height="40" />
   <img src="https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white" alt="Keras" height="40" />
