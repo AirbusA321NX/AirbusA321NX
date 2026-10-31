@@ -52,7 +52,7 @@ https://github.com/user-attachments/assets/5accc0fd-360d-4ea8-974f-42ba7ffa0739
   <img src="https://techstack-generator.vercel.app/github-icon.svg" alt="GitHub" width="40" height="40" />
   <img src="https://techstack-generator.vercel.app/java-icon.svg" alt="Java" width="40" height="40" />
   <img src="https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white" alt="Swagger" height="40" />
-  <img src="https://techstack-generator.vercel.app/mysql-icon.svg" alt="MySQL" width="40" height="40" />
+  <img src="https://techstack-generator.vercel.app/mysql-icon.svg" alt="MySQL" width="47" height="47" />
   <img src="https://techstack-generator.vercel.app/js-icon.svg" alt="JavaScript" width="40" height="40" />
   <img src="https://www.readmecodegen.com/api/social-icon?name=css3&size=40&animation=tada&animationDuration=1.9" alt="CSS3" width="40" height="40" />
   <img src="https://www.readmecodegen.com/api/social-icon?name=windows&size=40&animation=scale&animationDuration=1.9" alt="Windows" width="40" height="40" />
