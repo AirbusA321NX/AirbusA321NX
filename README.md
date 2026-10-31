@@ -12,7 +12,7 @@ https://github.com/user-attachments/assets/5accc0fd-360d-4ea8-974f-42ba7ffa0739
 <p align="left">
   <img src="https://www.readmecodegen.com/api/social-icon?name=c&size=96&animation=glow&color=%233b82f6" alt="C" width="40" height="40" />
   <img src="https://techstack-generator.vercel.app/cpp-icon.svg" alt="C++" width="40" height="40" />
-  <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" height="40" />
+  <img src="https://www.readmecodegen.com/api/social-icon?name=html5&size=40&animation=rainbow&animationDuration=1.9" alt="html5" />
   <img src="https://techstack-generator.vercel.app/js-icon.svg" alt="JavaScript" width="40" height="40" />
   <img src="https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white" alt="PHP" height="40" />
   <img src="https://techstack-generator.vercel.app/python-icon.svg" alt="Python" width="40" height="40" />
