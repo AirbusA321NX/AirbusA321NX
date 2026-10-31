@@ -1,4 +1,4 @@
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=Hey+There+!!)](https://git.io/typing-svg)
+<img width="800" height="192" alt="Image" src="https://github.com/user-attachments/assets/e0b4c04c-d45c-476f-87d1-180641cb8eb5" />
 
 <img width="1280" height="640" alt="Image" src="https://github.com/user-attachments/assets/5f5e708c-8fce-4aae-a324-2336058f0261" />
 
