@@ -20,4 +20,4 @@
 
 ![GitHub Stats](./github-stats.svg)
 
-![snake] (https://raw.githubusercontent.com/AirbusA321NX/AirbusA321NX/output/snake-purple.svg
+![snake](https://raw.githubusercontent.com/AirbusA321NX/AirbusA321NX/output/snake-purple.svg)
