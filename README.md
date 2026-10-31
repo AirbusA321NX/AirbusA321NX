@@ -8,17 +8,17 @@ https://github.com/user-attachments/assets/5accc0fd-360d-4ea8-974f-42ba7ffa0739
 
 <p align="left">
   <a href="https://linkedin.com/in/shivam-j-61a569281/">
-    <img src="https://www.readmecodegen.com/api/social-icon?name=linkedin&size=40&animation=glow&animationDuration=1.9"
+    <img src="https://www.readmecodegen.com/api/social-icon?name=linkedin&size=40&animation=flip&animationDuration=2.5"
          alt="LinkedIn" width="40" height="40" />
   </a>
   &nbsp;&nbsp;
   <a href="mailto:shivamjindal829@gmail.com">
-    <img src="https://www.readmecodegen.com/api/social-icon?name=envelope&size=40&animation=wiggle&animationDuration=1.9"
+    <img src="https://www.readmecodegen.com/api/social-icon?name=envelope&size=40&animation=heartbeat&animationDuration=1.9"
          alt="Email" width="40" height="40" />
   </a>
   &nbsp;&nbsp;
   <a href="https://scholar.google.com/citations?user=DRFVlEYAAAAJ&hl=en">
-    <img src="https://www.readmecodegen.com/api/social-icon?name=googlescholar&size=40&animation=fade&animationDuration=1.9"
+    <img src="https://www.readmecodegen.com/api/social-icon?name=googlescholar&size=40&animation=spin&animationDuration=3"
          alt="Google Scholar" width="40" height="40" />
   </a>
 </p>
