@@ -80,3 +80,5 @@
 ![GitHub Stats](./github-stats.svg)
 
 ![snake](https://raw.githubusercontent.com/AirbusA321NX/AirbusA321NX/output/snake-purple.svg)
+
+<img width="1280" height="640" alt="Image" src="https://github.com/user-attachments/assets/02797e61-7aa0-4182-b0ff-ad58c74bec9d" />
