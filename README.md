@@ -5,7 +5,13 @@ https://github.com/user-attachments/assets/5accc0fd-360d-4ea8-974f-42ba7ffa0739
 ![GitHubCard](https://githubcard.com/AirbusA321NX.svg)
 
 ## 🌐 Socials:
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/shivam-j-61a569281/) [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:shivamjindal829@gmail.com) [![Google Scholar](https://img.shields.io/badge/Google%20Scholar-4285F4?style=for-the-badge&logo=google-scholar&logoColor=white)](https://scholar.google.com/citations?user=DRFVlEYAAAAJ&hl=en)
+<a href="https://linkedin.com/in/shivam-j-61a569281/">
+  <img src="https://www.readmecodegen.com/api/social-icon?name=linkedin&size=40&animation=glow&animationDuration=1.9"
+       alt="LinkedIn"
+       width="40"
+       height="40" />
+</a>
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:shivamjindal829@gmail.com) [![Google Scholar](https://img.shields.io/badge/Google%20Scholar-4285F4?style=for-the-badge&logo=google-scholar&logoColor=white)](https://scholar.google.com/citations?user=DRFVlEYAAAAJ&hl=en)
 
 # 💻 Tech Stack:
 
