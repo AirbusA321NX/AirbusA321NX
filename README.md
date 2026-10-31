@@ -19,3 +19,5 @@
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
 ![GitHub Stats](./github-stats.svg)
+
+![snake] (https://raw.githubusercontent.com/AirbuA321NX/AirbusA321NX/output/snake-purple.svg
