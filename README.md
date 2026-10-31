@@ -14,7 +14,7 @@ https://github.com/user-attachments/assets/5accc0fd-360d-4ea8-974f-42ba7ffa0739
   <img src="https://techstack-generator.vercel.app/cpp-icon.svg" alt="C++" width="40" height="40" />
   <img src="https://www.readmecodegen.com/api/social-icon?name=html5&size=40&animation=rainbow&animationDuration=1.9" alt="html5" />
   <img src="https://techstack-generator.vercel.app/js-icon.svg" alt="JavaScript" width="40" height="40" />
-  <img src="https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white" alt="PHP" height="40" />
+  <img src="https://www.readmecodegen.com/api/social-icon?name=php&size=40&animation=fade&animationDuration=1.9" alt="php" />
   <img src="https://techstack-generator.vercel.app/python-icon.svg" alt="Python" width="40" height="40" />
   <img src="https://img.shields.io/badge/PowerShell-%235391FE.svg?style=for-the-badge&logo=powershell&logoColor=white" alt="PowerShell" height="40" />
   <img src="https://img.shields.io/badge/latex-%23008080.svg?style=for-the-badge&logo=latex&logoColor=white" alt="LaTeX" height="40" />
